@@ -1,0 +1,3 @@
+export const GLOBAL_HEADER_MENU_ID = '__GLOBAL_HEADER_MENU__';
+
+export const GLOBAL_SIDE_MENU_ID = '__GLOBAL_SIDE_MENU__';
