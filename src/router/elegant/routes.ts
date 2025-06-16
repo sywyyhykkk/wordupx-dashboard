@@ -58,18 +58,7 @@ export const generatedRoutes: GeneratedRoute[] = [
       title: 'decks',
       i18nKey: 'route.decks',
       icon: 'mdi:format-list-group',
-      order: 3,
-    }
-  },
-    {
-    name: 'users',
-    path: '/users',
-    component: 'layout.base$view.users',
-    meta: {
-      title: 'users',
-      i18nKey: 'route.users',
-      icon: 'mdi:user',
-      order: 2
+      order: 3
     }
   },
   {
@@ -95,4 +84,15 @@ export const generatedRoutes: GeneratedRoute[] = [
       hideInMenu: true
     }
   },
+  {
+    name: 'users',
+    path: '/users',
+    component: 'layout.base$view.users',
+    meta: {
+      title: 'users',
+      i18nKey: 'route.users',
+      icon: 'mdi:user',
+      order: 2
+    }
+  }
 ];
