@@ -337,7 +337,7 @@ declare namespace App {
       route: Record<I18nRouteKey, string>;
       form: {
         required: string;
-        userName: {
+        username: {
           invalid: string;
           required: string;
         };
@@ -348,6 +348,10 @@ declare namespace App {
       };
       common: {
         logout: string;
+        cancel: string;
+        confirm: string;
+        tip: string;
+        logoutConfirm: string;
       };
       dropdown: {
         closeCurrent: string;
@@ -367,6 +371,23 @@ declare namespace App {
         expand: string;
         pin: string;
         unpin: string;
+      };
+      page: {
+        login: {
+          pwdLogin: {
+            title: string;
+            rememberMe: string;
+          };
+          common: {
+            usernamePlaceholder: string;
+            passwordPlaceholder: string;
+            userTypePlaceholder: string;
+            loginSuccess: string;
+            welcomeBack: string;
+            admin: string;
+            user: string;
+          };
+        };
       };
     };
 

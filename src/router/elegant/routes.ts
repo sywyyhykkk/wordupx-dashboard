@@ -39,16 +39,14 @@ export const generatedRoutes: GeneratedRoute[] = [
       hideInMenu: true
     }
   },
-    {
-    name: 'login',
-    path: '/login/:module(pwd-login|code-login|register|reset-pwd|bind-wechat)?',
-    component: 'layout.blank$view.login',
-    props: true,
+  {
+    name: 'decks',
+    path: '/decks',
+    component: 'layout.base$view.decks',
     meta: {
-      title: 'login',
-      i18nKey: 'route.login',
-      constant: true,
-      hideInMenu: true
+      title: 'decks',
+      i18nKey: 'route.decks',
+      order: 3
     }
   },
   {
@@ -63,6 +61,18 @@ export const generatedRoutes: GeneratedRoute[] = [
     }
   },
   {
+    name: 'login',
+    path: '/login/:module(pwd-login|code-login|register|reset-pwd|bind-wechat)?',
+    component: 'layout.blank$view.login',
+    props: true,
+    meta: {
+      title: 'login',
+      i18nKey: 'route.login',
+      constant: true,
+      hideInMenu: true
+    }
+  },
+  {
     name: 'users',
     path: '/users',
     component: 'layout.base$view.users',
@@ -72,15 +82,5 @@ export const generatedRoutes: GeneratedRoute[] = [
       icon: 'mdi:user',
       order: 2
     }
-  },
-    {
-    name: 'decks',
-    path: '/decks',
-    component: 'layout.base$view.decks',
-    meta: {
-      title: 'decks',
-      i18nKey: 'route.decks',
-      order: 3
-    }
-  },
+  }
 ];

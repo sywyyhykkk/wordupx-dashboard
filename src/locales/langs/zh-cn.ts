@@ -29,7 +29,7 @@ const local: App.I18n.Schema = {
   },
   form: {
     required: '不能为空',
-    userName: {
+    username: {
       required: '请输入用户名',
       invalid: '用户名格式不正确'
     },
@@ -39,7 +39,11 @@ const local: App.I18n.Schema = {
     }
   },
   common: {
-    logout: '退出登录'
+    logout: '退出登录',
+    cancel: '取消',
+    confirm: '确认',
+    tip: '提示',
+    logoutConfirm: '确认退出登录?'
   },
   dropdown: {
     closeCurrent: '关闭',
@@ -59,6 +63,23 @@ const local: App.I18n.Schema = {
     expand: '展开菜单',
     pin: '固定',
     unpin: '取消固定'
+  },
+  page: {
+    login: {
+      pwdLogin: {
+        title: '用户名/密码',
+        rememberMe: '记住我'
+      },
+      common: {
+        usernamePlaceholder: '用户名',
+        passwordPlaceholder: '密码',
+        userTypePlaceholder: '用户类型',
+        loginSuccess: '登录成功',
+        welcomeBack: '欢迎回来',
+        admin: '管理员',
+        user: '用户'
+      }
+    }
   }
 };
 

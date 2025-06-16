@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, reactive } from 'vue';
+import { computed, reactive, ref, watch } from 'vue';
 import { useAuthStore } from '@/store/modules/auth';
 import { useFormRules, useNaiveForm } from '@/hooks/common/form';
 import { $t } from '@/locales';
@@ -10,14 +10,14 @@ defineOptions({
 
 const authStore = useAuthStore();
 const { formRef, validate } = useNaiveForm();
-
+const userType = ref(0); // 0=admin 1=user
 interface FormModel {
-  userName: string;
+  username: string;
   password: string;
 }
 
 const model: FormModel = reactive({
-  userName: 'joeadmin',
+  username: 'joeadmin',
   password: '123456'
 });
 
@@ -26,21 +26,42 @@ const rules = computed<Record<keyof FormModel, App.Global.FormRule[]>>(() => {
   const { formRules } = useFormRules();
 
   return {
-    userName: formRules.userName,
+    username: formRules.username,
     password: formRules.pwd
   };
 });
 
 async function handleSubmit() {
   await validate();
-  await authStore.login(model.userName, model.password);
+
+  if (userType.value === 0) {
+    await authStore.login(model.username, model.password);
+  } else {
+    await authStore.userLogin(model.username, model.password);
+  }
 }
+
+watch(
+  () => userType.value,
+  val => {
+    if (val === 0) {
+      model.username = 'joeadmin';
+      model.password = '123456';
+    } else {
+      model.username = 'kkk888';
+      model.password = 'kkk888';
+    }
+  },
+  {
+    immediate: true
+  }
+);
 </script>
 
 <template>
   <NForm ref="formRef" :model="model" :rules="rules" size="large" :show-label="false" @keyup.enter="handleSubmit">
-    <NFormItem path="userName">
-      <NInput v-model:value="model.userName" :placeholder="$t('page.login.common.userNamePlaceholder')" />
+    <NFormItem path="username">
+      <NInput v-model:value="model.username" :placeholder="$t('page.login.common.usernamePlaceholder')" />
     </NFormItem>
     <NFormItem path="password">
       <NInput
@@ -49,6 +70,23 @@ async function handleSubmit() {
         show-password-on="click"
         :placeholder="$t('page.login.common.passwordPlaceholder')"
       />
+    </NFormItem>
+    <NFormItem path="userType">
+      <NSelect
+        v-model:value="userType"
+        :options="[
+          {
+            label: $t('page.login.common.admin'),
+            value: 0
+          },
+          {
+            label: $t('page.login.common.user'),
+            value: 1
+          }
+        ]"
+        :placeholder="$t('page.login.common.userTypePlaceholder')"
+      />
+      {{}}
     </NFormItem>
     <NSpace vertical :size="24">
       <div class="flex-y-center justify-between">

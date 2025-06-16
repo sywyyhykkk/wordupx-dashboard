@@ -5,9 +5,9 @@ import { $t } from '@/locales';
 
 export function useFormRules() {
   const patternRules = {
-    userName: {
+    username: {
       pattern: REG_USER_NAME,
-      message: $t('form.userName.invalid'),
+      message: $t('form.username.invalid'),
       trigger: 'change'
     },
     pwd: {
@@ -18,7 +18,7 @@ export function useFormRules() {
   } satisfies Record<string, App.Global.FormRule>;
 
   const formRules = {
-    userName: [createRequiredRule($t('form.userName.required')), patternRules.userName],
+    username: [createRequiredRule($t('form.username.required')), patternRules.username],
     pwd: [createRequiredRule($t('form.pwd.required')), patternRules.pwd]
   } satisfies Record<string, App.Global.FormRule[]>;
 

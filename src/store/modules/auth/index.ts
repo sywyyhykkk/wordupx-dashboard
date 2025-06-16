@@ -2,7 +2,7 @@ import { computed, reactive, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { defineStore } from 'pinia';
 import { useLoading } from '@sa/hooks';
-import { fetchGetUserInfo, fetchLogin } from '@/service/api';
+import { fetchLogin, fetchUserLogin } from '@/service/api';
 import { useRouterPush } from '@/hooks/common/router';
 import { localStg } from '@/utils/storage';
 import { SetupStoreId } from '@/enum';
@@ -66,8 +66,7 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
     const { data, error } = await fetchLogin(userName, password);
 
     if (!error) {
-      localStg.set('token', data.data.token);
-      // localStg.set('refreshToken', loginToken.refreshToken);
+      localStg.set('token', data.token);
 
       await redirectFromLogin(redirect);
 
@@ -83,18 +82,40 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
     endLoading();
   }
 
-  async function getUserInfo() {
-    const { data: info, error } = await fetchGetUserInfo();
+  async function userLogin(userName: string, password: string, redirect = true) {
+    startLoading();
+
+    const { data, error } = await fetchUserLogin(userName, password);
 
     if (!error) {
-      // update store
-      Object.assign(userInfo, info);
+      localStg.set('token', data.token);
 
-      return true;
+      await redirectFromLogin(redirect);
+
+      window.$notification?.success({
+        title: $t('page.login.common.loginSuccess'),
+        content: $t('page.login.common.welcomeBack', { userName: userInfo.userName }),
+        duration: 4500
+      });
+    } else {
+      resetStore();
     }
 
-    return false;
+    endLoading();
   }
+
+  // async function getUserInfo() {
+  //   const { data: info, error } = await fetchGetUserInfo();
+
+  //   if (!error) {
+  //     // update store
+  //     Object.assign(userInfo, info);
+
+  //     return true;
+  //   }
+
+  //   return false;
+  // }
 
   async function initUserInfo() {
     const hasToken = getToken();
@@ -117,6 +138,7 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
     loginLoading,
     resetStore,
     login,
+    userLogin,
     initUserInfo
   };
 });

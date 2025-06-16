@@ -55,9 +55,7 @@ declare namespace Api {
    */
   namespace Auth {
     interface LoginToken {
-      data: {
-        token: string;
-      };
+      token: string;
     }
 
     interface UserInfo {

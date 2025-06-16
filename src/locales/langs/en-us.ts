@@ -29,7 +29,7 @@ const local: App.I18n.Schema = {
   },
   form: {
     required: 'Cannot be empty',
-    userName: {
+    username: {
       required: 'Please enter user name',
       invalid: 'User name format is incorrect'
     },
@@ -39,7 +39,11 @@ const local: App.I18n.Schema = {
     }
   },
   common: {
-    logout: 'Log out'
+    logout: 'Log out',
+    cancel: 'Cancel',
+    confirm: 'Confirm',
+    tip: 'Tip',
+    logoutConfirm: 'Confirm to log out?'
   },
   dropdown: {
     closeCurrent: 'Close Current',
@@ -59,6 +63,23 @@ const local: App.I18n.Schema = {
     expand: 'Expand Menu',
     pin: 'Pin',
     unpin: 'Unpin'
+  },
+  page: {
+    login: {
+      pwdLogin: {
+        title: 'Username/Password',
+        rememberMe: 'Remember me'
+      },
+      common: {
+        usernamePlaceholder: 'Username',
+        passwordPlaceholder: 'Password',
+        userTypePlaceholder: 'User type',
+        loginSuccess: 'Login success',
+        welcomeBack: 'Welcome back',
+        admin: 'Admin',
+        user: 'User'
+      }
+    }
   }
 };
 
