@@ -40,13 +40,36 @@ export const generatedRoutes: GeneratedRoute[] = [
     }
   },
   {
+    name: 'cards',
+    path: '/cards',
+    component: 'layout.base$view.cards',
+    meta: {
+      title: 'cards',
+      i18nKey: 'route.cards',
+      order: 4,
+      icon: 'mdi:cards'
+    }
+  },
+  {
     name: 'decks',
     path: '/decks',
     component: 'layout.base$view.decks',
     meta: {
       title: 'decks',
       i18nKey: 'route.decks',
-      order: 3
+      icon: 'mdi:format-list-group',
+      order: 3,
+    }
+  },
+    {
+    name: 'users',
+    path: '/users',
+    component: 'layout.base$view.users',
+    meta: {
+      title: 'users',
+      i18nKey: 'route.users',
+      icon: 'mdi:user',
+      order: 2
     }
   },
   {
@@ -72,15 +95,4 @@ export const generatedRoutes: GeneratedRoute[] = [
       hideInMenu: true
     }
   },
-  {
-    name: 'users',
-    path: '/users',
-    component: 'layout.base$view.users',
-    meta: {
-      title: 'users',
-      i18nKey: 'route.users',
-      icon: 'mdi:user',
-      order: 2
-    }
-  }
 ];

@@ -373,6 +373,9 @@ declare namespace App {
         unpin: string;
       };
       page: {
+        cards: {
+          deckIdPlaceholder: string;
+        };
         login: {
           pwdLogin: {
             title: string;

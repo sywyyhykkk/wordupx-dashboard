@@ -22,6 +22,7 @@ const local: App.I18n.Schema = {
     home: '首页',
     users: '用户',
     decks: '卡组',
+    cards: '卡片',
     exception: '异常页',
     exception_403: '403',
     exception_404: '404',
@@ -65,6 +66,9 @@ const local: App.I18n.Schema = {
     unpin: '取消固定'
   },
   page: {
+    cards: {
+      deckIdPlaceholder: '请输入卡组ID'
+    },
     login: {
       pwdLogin: {
         title: '用户名/密码',

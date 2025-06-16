@@ -21,7 +21,8 @@ const local: App.I18n.Schema = {
     500: 'Server Error',
     home: 'Home',
     users: 'Users',
-    decks: '卡组',
+    decks: 'Decks',
+    cards: 'Cards',
     exception: 'Exception',
     exception_403: '403',
     exception_404: '404',
@@ -65,6 +66,9 @@ const local: App.I18n.Schema = {
     unpin: 'Unpin'
   },
   page: {
+    cards: {
+      deckIdPlaceholder: 'Please input deck ID'
+    },
     login: {
       pwdLogin: {
         title: 'Username/Password',
