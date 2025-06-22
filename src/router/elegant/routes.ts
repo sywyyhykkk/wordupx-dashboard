@@ -47,7 +47,8 @@ export const generatedRoutes: GeneratedRoute[] = [
       title: 'cards',
       i18nKey: 'route.cards',
       order: 4,
-      icon: 'mdi:cards'
+      icon: 'mdi:cards',
+      roles: ['1']
     }
   },
   {
@@ -58,7 +59,8 @@ export const generatedRoutes: GeneratedRoute[] = [
       title: 'decks',
       i18nKey: 'route.decks',
       icon: 'mdi:format-list-group',
-      order: 3
+      order: 3,
+      roles: ['0']
     }
   },
   {
@@ -92,7 +94,8 @@ export const generatedRoutes: GeneratedRoute[] = [
       title: 'users',
       i18nKey: 'route.users',
       icon: 'mdi:user',
-      order: 2
+      order: 2,
+      roles: ['0']
     }
   }
 ];

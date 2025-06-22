@@ -23,9 +23,13 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
   const userInfo: Api.Auth.UserInfo = reactive({
     userId: '',
     userName: '',
-    roles: [],
+    roles: ['1'],
     buttons: []
   });
+
+  const setUserRole = (role: string) => {
+    userInfo.roles = [role];
+  };
 
   /** is super role in static route */
   const isStaticSuper = computed(() => {
@@ -139,6 +143,7 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
     resetStore,
     login,
     userLogin,
-    initUserInfo
+    initUserInfo,
+    setUserRole
   };
 });

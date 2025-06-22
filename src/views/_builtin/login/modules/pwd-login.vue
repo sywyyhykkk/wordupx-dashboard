@@ -10,7 +10,7 @@ defineOptions({
 
 const authStore = useAuthStore();
 const { formRef, validate } = useNaiveForm();
-const userType = ref(0); // 0=admin 1=user
+const userType = ref('1'); // 0=admin 1=user
 interface FormModel {
   username: string;
   password: string;
@@ -34,7 +34,7 @@ const rules = computed<Record<keyof FormModel, App.Global.FormRule[]>>(() => {
 async function handleSubmit() {
   await validate();
 
-  if (userType.value === 0) {
+  if (userType.value === '0') {
     await authStore.login(model.username, model.password);
   } else {
     await authStore.userLogin(model.username, model.password);
@@ -44,7 +44,8 @@ async function handleSubmit() {
 watch(
   () => userType.value,
   val => {
-    if (val === 0) {
+    authStore.setUserRole(val);
+    if (val === '0') {
       model.username = 'joeadmin';
       model.password = '123456';
     } else {
@@ -77,11 +78,11 @@ watch(
         :options="[
           {
             label: $t('page.login.common.admin'),
-            value: 0
+            value: '0'
           },
           {
             label: $t('page.login.common.user'),
-            value: 1
+            value: '1'
           }
         ]"
         :placeholder="$t('page.login.common.userTypePlaceholder')"
