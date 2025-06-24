@@ -27,7 +27,7 @@ declare module "@elegant-router/types" {
     "cards": "/cards";
     "decks": "/decks";
     "home": "/home";
-    "login": "/login/:module(pwd-login|code-login|register|reset-pwd|bind-wechat)?";
+    "login": "/login/:module(pwd-login)?";
     "users": "/users";
   };
 

@@ -375,6 +375,8 @@ declare namespace App {
       page: {
         cards: {
           deckIdPlaceholder: string;
+          next: string;
+          review: string;
         };
         login: {
           pwdLogin: {
@@ -390,6 +392,22 @@ declare namespace App {
             admin: string;
             user: string;
           };
+        };
+      };
+      table: {
+        user: {
+          username: string;
+          email: string;
+        };
+        deck: {
+          name: string;
+          owner: string;
+          fields: string;
+          template: string;
+          rate: string;
+        };
+        common: {
+          createdAt: string;
         };
       };
     };

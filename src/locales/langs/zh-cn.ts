@@ -67,7 +67,9 @@ const local: App.I18n.Schema = {
   },
   page: {
     cards: {
-      deckIdPlaceholder: '请输入卡组ID'
+      deckIdPlaceholder: '请选择卡组',
+      next: '下一个',
+      review: '复习'
     },
     login: {
       pwdLogin: {
@@ -83,6 +85,22 @@ const local: App.I18n.Schema = {
         admin: '管理员',
         user: '用户'
       }
+    }
+  },
+  table: {
+    user: {
+      username: '用户名',
+      email: '邮箱'
+    },
+    deck: {
+      name: '名称',
+      owner: '创建人',
+      fields: '领域',
+      template: '模版',
+      rate: 'RATE'
+    },
+    common: {
+      createdAt: '创建于'
     }
   }
 };

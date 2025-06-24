@@ -21,13 +21,13 @@ onMounted(async () => {
 <template>
   <NSpace vertical :size="16">
     <NCard>Some filters</NCard>
-    <NCard title="Deck List" :bordered="false">
+    <NCard :bordered="false">
       <ListTable :options="{}" :records="listRecords" height="400px">
-        <ListColumn field="name" title="Name" width="auto" />
-        <ListColumn field="owner.username" title="Owner" width="auto" />
-        <ListColumn field="fields" title="Fields" width="auto" />
-        <ListColumn field="templates" title="Templates" width="auto" />
-        <ListColumn field="rate" title="Rate" width="auto" />
+        <ListColumn field="name" :title="$t('table.deck.name')" width="auto" />
+        <ListColumn field="owner.username" :title="$t('table.deck.owner')" width="auto" />
+        <ListColumn field="fields" :title="$t('table.deck.fields')" width="auto" />
+        <ListColumn field="templates" :title="$t('table.deck.template')" width="auto" />
+        <ListColumn field="rate" :title="$t('table.deck.rate')" width="auto" />
       </ListTable>
     </NCard>
   </NSpace>

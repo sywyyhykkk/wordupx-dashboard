@@ -6,3 +6,13 @@ export function fetchNextDueCard(deckId: string) {
     method: 'get'
   });
 }
+
+export function fetchReviewCard(deckId: string, cardIndex: number, factor: number) {
+  return request({
+    url: `/api/decks/${deckId}/cards/${cardIndex}`,
+    method: 'patch',
+    data: {
+      factor
+    }
+  });
+}

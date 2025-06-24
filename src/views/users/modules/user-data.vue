@@ -27,11 +27,11 @@ onMounted(async () => {
 <template>
   <NSpace vertical :size="16">
     <NCard>Some filters</NCard>
-    <NCard title="User List" :bordered="false">
+    <NCard :bordered="false">
       <ListTable :options="{}" :records="listRecords" height="400px">
-        <ListColumn field="username" title="Username" width="auto" />
-        <ListColumn field="email" title="Email" width="auto" />
-        <ListColumn field="created_at" title="Created at" width="auto" />
+        <ListColumn field="username" :title="$t('table.user.username')" width="auto" />
+        <ListColumn field="email" :title="$t('table.user.email')" width="auto" />
+        <ListColumn field="created_at" :title="$t('table.common.createdAt')" width="auto" />
       </ListTable>
     </NCard>
   </NSpace>

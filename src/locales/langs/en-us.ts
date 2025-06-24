@@ -67,7 +67,9 @@ const local: App.I18n.Schema = {
   },
   page: {
     cards: {
-      deckIdPlaceholder: 'Please input deck ID'
+      deckIdPlaceholder: 'Please select a deck',
+      next: 'NEXT',
+      review: 'REVIEW'
     },
     login: {
       pwdLogin: {
@@ -83,6 +85,22 @@ const local: App.I18n.Schema = {
         admin: 'Admin',
         user: 'User'
       }
+    }
+  },
+  table: {
+    user: {
+      username: 'USERNAME',
+      email: 'EMAIL'
+    },
+    deck: {
+      name: 'NAME',
+      owner: 'OWNER',
+      fields: 'FIELDS',
+      template: 'TEMPLATE',
+      rate: 'RATE'
+    },
+    common: {
+      createdAt: 'CREATED AT'
     }
   }
 };

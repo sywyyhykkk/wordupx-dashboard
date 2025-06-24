@@ -87,7 +87,6 @@ watch(
         ]"
         :placeholder="$t('page.login.common.userTypePlaceholder')"
       />
-      {{}}
     </NFormItem>
     <NSpace vertical :size="24">
       <div class="flex-y-center justify-between">
