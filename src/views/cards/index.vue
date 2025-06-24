@@ -19,7 +19,7 @@ async function getNextDueCard() {
 }
 
 async function reviewCard() {
-  const { data } = await fetchReviewCard(deckId.value, nextCard.value.card_index, 0.5);
+  const { data } = await fetchReviewCard(deckId.value, nextCard.value.card_index, factor.value);
   if (data) {
     isReviewed.value = true;
   }
