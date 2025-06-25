@@ -8,7 +8,7 @@ const deckId = ref();
 const nextCard = ref();
 const isReviewed = ref(false);
 const userDecks = ref<SelectOption[]>();
-const factor = ref(0.5);
+const factor = ref(2);
 
 async function getNextDueCard() {
   const { data } = await fetchNextDueCard(deckId.value);
@@ -50,12 +50,12 @@ onMounted(() => {
       <div class="px-4">
         <NSlider
           v-model:value="factor"
-          :step="0.1"
+          :step="1"
           :tooltip="false"
-          :min="0.5"
+          :min="2"
           :max="8"
           class="w-1/2"
-          :marks="{ 0.5: 'EASY', 8: 'HARD' }"
+          :marks="{ 2: 'EASY', 8: 'HARD' }"
         />
       </div>
       <NButton :disabled="!nextCard || isReviewed" @click="reviewCard">{{ $t('page.cards.review') }}</NButton>
