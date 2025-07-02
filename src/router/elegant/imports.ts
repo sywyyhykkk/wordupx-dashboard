@@ -19,8 +19,9 @@ export const views: Record<LastLevelRouteKey, RouteComponent | (() => Promise<Ro
   404: () => import("@/views/_builtin/404/index.vue"),
   500: () => import("@/views/_builtin/500/index.vue"),
   login: () => import("@/views/_builtin/login/index.vue"),
-  cards: () => import("@/views/cards/index.vue"),
   decks: () => import("@/views/decks/index.vue"),
   home: () => import("@/views/home/index.vue"),
+  user_cards: () => import("@/views/user_cards/index.vue"),
+  user_decks: () => import("@/views/user_decks/index.vue"),
   users: () => import("@/views/users/index.vue"),
 };

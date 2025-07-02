@@ -24,10 +24,12 @@ declare module "@elegant-router/types" {
     "403": "/403";
     "404": "/404";
     "500": "/500";
-    "cards": "/cards";
     "decks": "/decks";
     "home": "/home";
     "login": "/login/:module(pwd-login)?";
+    "user": "/user";
+    "user_cards": "/user/cards";
+    "user_decks": "/user/decks";
     "users": "/users";
   };
 
@@ -67,10 +69,10 @@ declare module "@elegant-router/types" {
     | "403"
     | "404"
     | "500"
-    | "cards"
     | "decks"
     | "home"
     | "login"
+    | "user"
     | "users"
   >;
 
@@ -93,9 +95,10 @@ declare module "@elegant-router/types" {
     | "404"
     | "500"
     | "login"
-    | "cards"
     | "decks"
     | "home"
+    | "user_cards"
+    | "user_decks"
     | "users"
   >;
 

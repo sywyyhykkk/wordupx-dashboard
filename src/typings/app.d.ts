@@ -23,6 +23,16 @@ declare namespace App {
       name: string;
       id: string;
       fields: string[];
+      min_interval: number;
+      def_interval: number;
+      max_interval: number;
+    }
+
+    interface DeckForm {
+      name: string;
+      fields: string[];
+      templates: number[][];
+      rate: number;
     }
   }
 
@@ -350,6 +360,9 @@ declare namespace App {
         logout: string;
         cancel: string;
         confirm: string;
+        save: string;
+        edit: string;
+        delete: string;
         tip: string;
         logoutConfirm: string;
       };
@@ -377,6 +390,12 @@ declare namespace App {
           deckIdPlaceholder: string;
           next: string;
           review: string;
+          flip: string;
+          yr: string;
+          wk: string;
+          d: string;
+          hr: string;
+          min: string;
         };
         login: {
           pwdLogin: {
@@ -408,6 +427,7 @@ declare namespace App {
         };
         common: {
           createdAt: string;
+          actions: string;
         };
       };
     };

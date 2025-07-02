@@ -21,8 +21,10 @@ const local: App.I18n.Schema = {
     500: 'Server Error',
     home: 'Home',
     users: 'Users',
+    user: 'User',
     decks: 'Decks',
-    cards: 'Cards',
+    user_cards: 'Cards',
+    user_decks: 'Decks',
     exception: 'Exception',
     exception_403: '403',
     exception_404: '404',
@@ -43,6 +45,9 @@ const local: App.I18n.Schema = {
     logout: 'Log out',
     cancel: 'Cancel',
     confirm: 'Confirm',
+    save: 'Save',
+    edit: 'Edit',
+    delete: 'Delete',
     tip: 'Tip',
     logoutConfirm: 'Confirm to log out?'
   },
@@ -69,7 +74,13 @@ const local: App.I18n.Schema = {
     cards: {
       deckIdPlaceholder: 'Please select a deck',
       next: 'NEXT',
-      review: 'REVIEW'
+      review: 'REVIEW',
+      flip: 'FLIP',
+      yr: ' Year',
+      wk: ' Week',
+      d: ' Day',
+      hr: ' Hour',
+      min: ' Minute'
     },
     login: {
       pwdLogin: {
@@ -100,7 +111,8 @@ const local: App.I18n.Schema = {
       rate: 'RATE'
     },
     common: {
-      createdAt: 'CREATED AT'
+      createdAt: 'CREATED AT',
+      actions: 'ACTIONS'
     }
   }
 };

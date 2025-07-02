@@ -6,3 +6,11 @@ export function fetchUserDecks() {
     method: 'get'
   });
 }
+
+export function createNewDeck(data: App.WordUpx.DeckForm) {
+  return request({
+    url: `/api/decks`,
+    method: 'post',
+    data
+  });
+}

@@ -3,7 +3,7 @@ import DeckData from './modules/deck-data.vue';
 </script>
 
 <template>
-  <NSpace vertical :size="16">
+  <NSpace vertical :size="32">
     <DeckData />
   </NSpace>
 </template>

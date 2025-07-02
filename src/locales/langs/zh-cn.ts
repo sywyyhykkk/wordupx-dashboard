@@ -21,8 +21,10 @@ const local: App.I18n.Schema = {
     500: '服务器错误',
     home: '首页',
     users: '用户',
+    user: '用户',
     decks: '卡组',
-    cards: '卡片',
+    user_cards: '卡片',
+    user_decks: '卡组',
     exception: '异常页',
     exception_403: '403',
     exception_404: '404',
@@ -43,6 +45,9 @@ const local: App.I18n.Schema = {
     logout: '退出登录',
     cancel: '取消',
     confirm: '确认',
+    save: '保存',
+    edit: '编辑',
+    delete: '删除',
     tip: '提示',
     logoutConfirm: '确认退出登录?'
   },
@@ -69,7 +74,13 @@ const local: App.I18n.Schema = {
     cards: {
       deckIdPlaceholder: '请选择卡组',
       next: '下一个',
-      review: '复习'
+      review: '复习',
+      flip: '翻转',
+      yr: '年',
+      wk: '周',
+      d: '天',
+      hr: '小时',
+      min: '分钟'
     },
     login: {
       pwdLogin: {
@@ -95,12 +106,13 @@ const local: App.I18n.Schema = {
     deck: {
       name: '名称',
       owner: '创建人',
-      fields: '领域',
+      fields: '条目',
       template: '模版',
-      rate: 'RATE'
+      rate: '频率'
     },
     common: {
-      createdAt: '创建于'
+      createdAt: '创建于',
+      actions: '操作'
     }
   }
 };

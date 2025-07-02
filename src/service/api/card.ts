@@ -7,12 +7,12 @@ export function fetchNextDueCard(deckId: string) {
   });
 }
 
-export function fetchReviewCard(deckId: string, cardIndex: number, factor: number) {
+export function fetchReviewCard(deckId: string, cardIndex: number, interval: number) {
   return request({
     url: `/api/decks/${deckId}/cards/${cardIndex}`,
     method: 'patch',
     data: {
-      factor
+      interval
     }
   });
 }

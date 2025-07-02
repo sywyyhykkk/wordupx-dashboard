@@ -4,7 +4,7 @@ import { ListColumn, ListTable } from '@visactor/vue-vtable';
 import { fetchAllDecks } from '@/service/api';
 
 defineOptions({
-  name: 'UserData'
+  name: 'DeckData'
 });
 
 const listRecords = ref<App.WordUpx.Deck[]>();
