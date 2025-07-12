@@ -7,13 +7,10 @@ const emit = defineEmits<{
   save: [];
 }>();
 const show = defineModel<boolean>();
-
-// 表单数据
 const name = ref('');
 const fields = ref<string[]>(['']);
 const rate = ref(20);
 
-// 自动生成模板，每个字段一个模板
 const templates = computed(() => {
   return fields.value.map((_, index) => [index]);
 });
@@ -37,17 +34,29 @@ async function handleSave() {
 </script>
 
 <template>
-  <NModal v-model:show="show" preset="card" title="新增卡组" class="w-96">
+  <NModal
+    v-model:show="show"
+    preset="card"
+    :title="$t('page.common.addNew', { name: $t('route.user_decks') })"
+    class="w-96"
+  >
     <NForm label-placement="top">
-      <NFormItem label="卡组名称">
-        <NInput v-model:value="name" placeholder="请输入卡组名称" />
+      <NFormItem :label="$t('table.deck.name')">
+        <NInput
+          v-model:value.trim="name"
+          :placeholder="$t('form.pleaseEnter', { field: $t('table.deck.name').toLocaleLowerCase() })"
+        />
       </NFormItem>
 
-      <NFormItem label="字段（如 仮名 / 汉字 / 含义）">
-        <NDynamicInput v-model:value="fields" placeholder="请输入字段名" :min="1" />
+      <NFormItem :label="$t('table.deck.fields')">
+        <NDynamicInput
+          v-model:value.trim="fields"
+          :placeholder="$t('form.pleaseEnter', { field: $t('table.deck.fields').toLocaleLowerCase() })"
+          :min="1"
+        />
       </NFormItem>
 
-      <NFormItem label="复习频率（rate）">
+      <NFormItem :label="$t('table.deck.rate')">
         <NSlider v-model:value="rate" :min="1" :max="100" :step="1" :format-tooltip="val => `${val} 次/日`" />
       </NFormItem>
     </NForm>

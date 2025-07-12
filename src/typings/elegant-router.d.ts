@@ -30,6 +30,7 @@ declare module "@elegant-router/types" {
     "user": "/user";
     "user_cards": "/user/cards";
     "user_decks": "/user/decks";
+    "user_facts": "/user/facts";
     "users": "/users";
   };
 
@@ -99,6 +100,7 @@ declare module "@elegant-router/types" {
     | "home"
     | "user_cards"
     | "user_decks"
+    | "user_facts"
     | "users"
   >;
 

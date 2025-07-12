@@ -86,11 +86,25 @@ export const generatedRoutes: GeneratedRoute[] = [
       icon: 'mdi:user'
     },
     children: [
+    {
+        name: 'user_facts',
+        path: '/user/facts',
+        component: 'view.user_facts',
+        meta: {
+          keepAlive: true,
+          title: 'user_facts_facts',
+          i18nKey: 'route.user_facts',
+          order: 3,
+          icon: 'mdi:lightbulb',
+          roles: ['1']
+        }
+      },
       {
         name: 'user_cards',
         path: '/user/cards',
         component: 'view.user_cards',
         meta: {
+          keepAlive: true,
           title: 'user_cards',
           i18nKey: 'route.user_cards',
           order: 2,

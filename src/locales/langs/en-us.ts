@@ -9,7 +9,7 @@ const local: App.I18n.Schema = {
   request: {
     logout: 'Logout user after request failed',
     logoutMsg: 'User status is invalid, please log in again',
-    logoutWithModal: 'Pop up modal after request failed and then log out user',
+    logoutWithModal: 'Pop up modal after request failed and then logout user',
     logoutWithModalMsg: 'User status is invalid, please log in again',
     refreshToken: 'The requested token has expired, refresh the token',
     tokenExpired: 'The requested token has expired'
@@ -23,6 +23,7 @@ const local: App.I18n.Schema = {
     users: 'Users',
     user: 'User',
     decks: 'Decks',
+    user_facts: 'Facts',
     user_cards: 'Cards',
     user_decks: 'Decks',
     exception: 'Exception',
@@ -31,7 +32,8 @@ const local: App.I18n.Schema = {
     exception_500: '500'
   },
   form: {
-    required: 'Cannot be empty',
+    pleaseEnter: 'Please enter {field}',
+    required: 'The field is required',
     username: {
       required: 'Please enter user name',
       invalid: 'User name format is incorrect'
@@ -39,17 +41,24 @@ const local: App.I18n.Schema = {
     pwd: {
       required: 'Please enter password',
       invalid: '6-18 characters, including letters, numbers, and underscores'
+    },
+    field: {
+      required: 'Please enter {field}'
     }
   },
   common: {
-    logout: 'Log out',
+    logout: 'Logout',
     cancel: 'Cancel',
     confirm: 'Confirm',
     save: 'Save',
     edit: 'Edit',
     delete: 'Delete',
     tip: 'Tip',
-    logoutConfirm: 'Confirm to log out?'
+    logoutConfirm: 'Confirm to logout?',
+    error: 'Error',
+    saveSuccess: 'Save successfully',
+    addNew: 'Add new {name}',
+    createNew: 'Create New {name}'
   },
   dropdown: {
     closeCurrent: 'Close Current',
@@ -74,7 +83,6 @@ const local: App.I18n.Schema = {
     cards: {
       deckIdPlaceholder: 'Please select a deck',
       next: 'NEXT',
-      review: 'REVIEW',
       flip: 'FLIP',
       yr: ' Year',
       wk: ' Week',
@@ -91,7 +99,7 @@ const local: App.I18n.Schema = {
         usernamePlaceholder: 'Username',
         passwordPlaceholder: 'Password',
         userTypePlaceholder: 'User type',
-        loginSuccess: 'Login success',
+        loginSuccess: 'Login successfully',
         welcomeBack: 'Welcome back',
         admin: 'Admin',
         user: 'User'

@@ -23,6 +23,7 @@ const local: App.I18n.Schema = {
     users: '用户',
     user: '用户',
     decks: '卡组',
+    user_facts: '知识点',
     user_cards: '卡片',
     user_decks: '卡组',
     exception: '异常页',
@@ -31,6 +32,7 @@ const local: App.I18n.Schema = {
     exception_500: '500'
   },
   form: {
+    pleaseEnter: '请输入{field}',
     required: '不能为空',
     username: {
       required: '请输入用户名',
@@ -39,6 +41,9 @@ const local: App.I18n.Schema = {
     pwd: {
       required: '请输入密码',
       invalid: '密码格式不正确，6-18位字符，包含字母、数字、下划线'
+    },
+    field: {
+      required: '请输入{field}'
     }
   },
   common: {
@@ -49,7 +54,11 @@ const local: App.I18n.Schema = {
     edit: '编辑',
     delete: '删除',
     tip: '提示',
-    logoutConfirm: '确认退出登录?'
+    logoutConfirm: '确认退出登录?',
+    error: '错误',
+    saveSuccess: '保存成功',
+    addNew: '新增{name}',
+    createNew: '创建{name}'
   },
   dropdown: {
     closeCurrent: '关闭',
@@ -74,7 +83,6 @@ const local: App.I18n.Schema = {
     cards: {
       deckIdPlaceholder: '请选择卡组',
       next: '下一个',
-      review: '复习',
       flip: '翻转',
       yr: '年',
       wk: '周',
@@ -106,7 +114,7 @@ const local: App.I18n.Schema = {
     deck: {
       name: '名称',
       owner: '创建人',
-      fields: '条目',
+      fields: '字段',
       template: '模版',
       rate: '频率'
     },

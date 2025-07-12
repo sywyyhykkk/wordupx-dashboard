@@ -76,7 +76,7 @@ async function getUserDecks() {
   isLoading.value = true;
   const { data } = await fetchUserDecks();
   if (data) {
-    listRecords.value = data?.decks.map(item => {
+    listRecords.value = data.decks.map(item => {
       return {
         ...item,
         actions: []
@@ -113,6 +113,6 @@ onMounted(() => {
       />
     </NCard>
 
-    <CreateDeck v-model="isShowDialog" @save="getUserDecks" />
+    <CreateDeck v-if="isShowDialog" v-model="isShowDialog" @save="getUserDecks" />
   </NSpace>
 </template>

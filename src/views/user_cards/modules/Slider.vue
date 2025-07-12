@@ -8,6 +8,7 @@ const props = defineProps<{
   min_interval: number;
   max_interval: number;
   modelValue: number;
+  loading: boolean;
 }>();
 
 const emit = defineEmits<{
@@ -38,6 +39,7 @@ const marks = computed(() => ({
       :max="max_interval"
       :marks="marks"
       :step="1"
+      :disabled="loading"
       :value="modelValue"
       :format-tooltip="formatTime"
       @update:value="emit('update:modelValue', $event)"

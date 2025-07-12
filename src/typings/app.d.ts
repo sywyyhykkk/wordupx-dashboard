@@ -346,6 +346,7 @@ declare namespace App {
       };
       route: Record<I18nRouteKey, string>;
       form: {
+        pleaseEnter: string;
         required: string;
         username: {
           invalid: string;
@@ -353,6 +354,9 @@ declare namespace App {
         };
         pwd: {
           invalid: string;
+          required: string;
+        };
+        field: {
           required: string;
         };
       };
@@ -365,6 +369,10 @@ declare namespace App {
         delete: string;
         tip: string;
         logoutConfirm: string;
+        error: string;
+        saveSuccess: string;
+        addNew: string;
+        createNew: string;
       };
       dropdown: {
         closeCurrent: string;
@@ -389,7 +397,6 @@ declare namespace App {
         cards: {
           deckIdPlaceholder: string;
           next: string;
-          review: string;
           flip: string;
           yr: string;
           wk: string;

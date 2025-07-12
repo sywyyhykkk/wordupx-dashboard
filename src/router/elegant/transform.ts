@@ -176,6 +176,7 @@ const routeMap: RouteMap = {
   "user": "/user",
   "user_cards": "/user/cards",
   "user_decks": "/user/decks",
+  "user_facts": "/user/facts",
   "users": "/users"
 };
 

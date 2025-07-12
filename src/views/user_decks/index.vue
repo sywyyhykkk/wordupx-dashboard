@@ -3,7 +3,7 @@ import UserDeck from './modules/user-deck.vue';
 </script>
 
 <template>
-  <NSpace vertical :size="32" class="color-black">
+  <NSpace vertical :size="8" class="color-black">
     <UserDeck />
   </NSpace>
 </template>

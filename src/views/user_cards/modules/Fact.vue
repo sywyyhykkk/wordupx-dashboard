@@ -3,13 +3,14 @@ import { computed, ref } from 'vue';
 import { NButton, NCard } from 'naive-ui';
 
 const props = defineProps<{
-  fact: [string, string];
+  fact: string[];
+  loading: boolean;
 }>();
 
 const flipped = ref(false);
 
 const front = computed(() => props.fact[0]);
-const back = computed(() => props.fact[1]);
+const back = computed(() => props.fact.slice(1));
 
 function toggleFlip() {
   flipped.value = !flipped.value;
@@ -17,7 +18,7 @@ function toggleFlip() {
 </script>
 
 <template>
-  <div class="m-auto h-24 w-80 perspective-800">
+  <div class="m-auto h-40 w-80 perspective-800">
     <div
       class="transform-style-preserve-3d relative h-full w-full transition-transform duration-500"
       :class="{ 'rotate-y-180': flipped }"
@@ -35,12 +36,12 @@ function toggleFlip() {
         class="backface-hidden absolute h-full w-full flex rotate-y-180 items-center justify-center rounded-xl text-center text-lg shadow-xl"
         embedded
       >
-        {{ back }}
+        {{ back.join(', ') }}
       </NCard>
     </div>
 
-    <div class="mt-2 text-center">
-      <NButton size="small" type="primary" @click="toggleFlip">
+    <div class="mt-4 text-center">
+      <NButton size="small" type="primary" :loading="props.loading" @click="toggleFlip">
         {{ $t('page.cards.flip') }}
       </NButton>
     </div>

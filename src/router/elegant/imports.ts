@@ -23,5 +23,6 @@ export const views: Record<LastLevelRouteKey, RouteComponent | (() => Promise<Ro
   home: () => import("@/views/home/index.vue"),
   user_cards: () => import("@/views/user_cards/index.vue"),
   user_decks: () => import("@/views/user_decks/index.vue"),
+  user_facts: () => import("@/views/user_facts/index.vue"),
   users: () => import("@/views/users/index.vue"),
 };
