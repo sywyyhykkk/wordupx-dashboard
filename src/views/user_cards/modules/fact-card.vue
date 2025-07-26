@@ -2,17 +2,26 @@
 import { computed, ref } from 'vue';
 import { NButton, NCard } from 'naive-ui';
 
+defineOptions({
+  name: 'FactCard'
+});
+
 const props = defineProps<{
   fact: string[];
   loading: boolean;
 }>();
 
-const flipped = ref(false);
+interface Emits {
+  (e: 'flip'): void;
+}
 
+const emit = defineEmits<Emits>();
+const flipped = ref(false);
 const front = computed(() => props.fact[0]);
 const back = computed(() => props.fact.slice(1));
 
 function toggleFlip() {
+  emit('flip');
   flipped.value = !flipped.value;
 }
 </script>

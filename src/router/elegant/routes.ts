@@ -86,31 +86,39 @@ export const generatedRoutes: GeneratedRoute[] = [
       icon: 'mdi:user'
     },
     children: [
-    {
-        name: 'user_facts',
-        path: '/user/facts',
-        component: 'view.user_facts',
-        meta: {
-          keepAlive: true,
-          title: 'user_facts_facts',
-          i18nKey: 'route.user_facts',
-          order: 3,
-          icon: 'mdi:lightbulb',
-          roles: ['1']
-        }
-      },
       {
         name: 'user_cards',
         path: '/user/cards',
-        component: 'view.user_cards',
         meta: {
-          keepAlive: true,
           title: 'user_cards',
-          i18nKey: 'route.user_cards',
-          order: 2,
-          icon: 'mdi:cards',
-          roles: ['1']
-        }
+          i18nKey: 'route.user_cards'
+        },
+        children: [
+          {
+            name: 'user_cards_hidden',
+            path: '/user/cards/hidden',
+            component: 'view.user_cards_hidden',
+            meta: {
+              keepAlive: true,
+              title: 'user_cards_hidden',
+              i18nKey: 'route.user_cards_hidden',
+              icon: 'mdi:folder-hidden',
+              order: 2
+            }
+          },
+          {
+            name: 'user_cards_learn',
+            path: '/user/cards/learn',
+            component: 'view.user_cards_learn',
+            meta: {
+              keepAlive: true,
+              title: 'user_cards_learn',
+              i18nKey: 'route.user_cards_learn',
+              icon: 'mdi:book-open-variant',
+              order: 1
+            }
+          }
+        ]
       },
       {
         name: 'user_decks',
@@ -121,6 +129,19 @@ export const generatedRoutes: GeneratedRoute[] = [
           i18nKey: 'route.user_decks',
           order: 1,
           icon: 'mdi:format-list-group',
+          roles: ['1']
+        }
+      },
+      {
+        name: 'user_facts',
+        path: '/user/facts',
+        component: 'view.user_facts',
+        meta: {
+          keepAlive: true,
+          title: 'user_facts_facts',
+          i18nKey: 'route.user_facts',
+          order: 3,
+          icon: 'mdi:lightbulb',
           roles: ['1']
         }
       }

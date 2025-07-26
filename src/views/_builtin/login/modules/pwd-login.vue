@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import { computed, reactive, ref, watch } from 'vue';
+import { loginModuleRecord } from '@/constants/app';
 import { useAuthStore } from '@/store/modules/auth';
 import { useFormRules, useNaiveForm } from '@/hooks/common/form';
+import { useRouterPush } from '@/hooks/common/router';
 import { $t } from '@/locales';
 
 defineOptions({
   name: 'PwdLogin'
 });
 
+const { toggleLoginModule } = useRouterPush();
 const authStore = useAuthStore();
 const { formRef, validate } = useNaiveForm();
 const userType = ref('1'); // 0=admin 1=user
@@ -72,7 +75,8 @@ watch(
         :placeholder="$t('page.login.common.passwordPlaceholder')"
       />
     </NFormItem>
-    <NFormItem path="userType">
+    <!--
+ <NFormItem path="userType">
       <NSelect
         v-model:value="userType"
         :options="[
@@ -87,11 +91,17 @@ watch(
         ]"
         :placeholder="$t('page.login.common.userTypePlaceholder')"
       />
-    </NFormItem>
+    </NFormItem> 
+-->
     <NSpace vertical :size="24">
-      <div class="flex-y-center justify-between">
+      <NButton quaternary class="flex-1 underline" block @click="toggleLoginModule('register')">
+        {{ $t(loginModuleRecord.register) }}
+      </NButton>
+      <!--
+ <div class="flex-y-center justify-between">
         <NCheckbox>{{ $t('page.login.pwdLogin.rememberMe') }}</NCheckbox>
-      </div>
+      </div> 
+-->
       <NButton type="primary" size="large" round block :loading="authStore.loginLoading" @click="handleSubmit">
         {{ $t('common.confirm') }}
       </NButton>

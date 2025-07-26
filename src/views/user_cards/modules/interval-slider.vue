@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { NSlider } from 'naive-ui';
-import { $t } from '@/locales';
+import { useI18n } from 'vue-i18n';
+
+defineOptions({
+  name: 'IntervalSlider'
+});
 
 const props = defineProps<{
   def_interval: number;
@@ -14,13 +18,14 @@ const props = defineProps<{
 const emit = defineEmits<{
   (e: 'update:modelValue', value: number): void;
 }>();
+const { t } = useI18n();
 
 function formatTime(seconds: number): string {
-  if (seconds < 3600) return `${Math.round(seconds / 60)}${$t('page.cards.min')}`;
-  if (seconds < 86400) return `${Math.round(seconds / 3600)}${$t('page.cards.hr')}`;
-  if (seconds < 604800) return `${Math.round(seconds / 86400)}${$t('page.cards.d')}`;
-  if (seconds < 2592000) return `${Math.round(seconds / 604800)}${$t('page.cards.wk')}`;
-  if (seconds < 31536000) return `${Math.round(seconds / 2592000)}${$t('page.cards.yr')}`;
+  if (seconds < 3600) return `${Math.round(seconds / 60)}${t('page.cards.min')}`;
+  if (seconds < 86400) return `${Math.round(seconds / 3600)}${t('page.cards.hr')}`;
+  if (seconds < 604800) return `${Math.round(seconds / 86400)}${t('page.cards.d')}`;
+  if (seconds < 2592000) return `${Math.round(seconds / 604800)}${t('page.cards.wk')}`;
+  if (seconds < 31536000) return `${Math.round(seconds / 2592000)}${t('page.cards.yr')}`;
   return `${Math.round(seconds / 31536000)}yr`;
 }
 

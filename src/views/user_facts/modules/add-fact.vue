@@ -4,6 +4,10 @@ import { NButton, NForm, NFormItem, NInput, NModal } from 'naive-ui';
 import { useI18n } from 'vue-i18n';
 import { addFactToDeck } from '@/service/api';
 
+defineOptions({
+  name: 'AddFact'
+});
+
 const emit = defineEmits<{
   save: [];
 }>();
@@ -43,7 +47,7 @@ async function handleSave() {
   <NModal
     v-model:show="show"
     preset="card"
-    :title="$t('page.common.addNew', { name: $t('route.user_facts') })"
+    :title="$t('common.addNew', { name: $t('route.user_facts') })"
     class="max-h-70svh w-96 overflow-y-scroll"
   >
     <NForm label-placement="top">

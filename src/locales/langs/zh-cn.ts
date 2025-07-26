@@ -1,6 +1,6 @@
 const local: App.I18n.Schema = {
   system: {
-    title: 'Soybean 管理系统',
+    title: 'Wordupx',
     updateTitle: '系统版本更新通知',
     updateContent: '检测到系统有新版本发布，是否立即刷新页面？',
     updateConfirm: '立即刷新',
@@ -26,6 +26,8 @@ const local: App.I18n.Schema = {
     user_facts: '知识点',
     user_cards: '卡片',
     user_decks: '卡组',
+    user_cards_hidden: '已隐藏',
+    user_cards_learn: '学习',
     exception: '异常页',
     exception_403: '403',
     exception_404: '404',
@@ -34,6 +36,10 @@ const local: App.I18n.Schema = {
   form: {
     pleaseEnter: '请输入{field}',
     required: '不能为空',
+    email: {
+      required: '请输入电子邮箱地址',
+      invalid: '电子邮箱地址格式不正确'
+    },
     username: {
       required: '请输入用户名',
       invalid: '用户名格式不正确'
@@ -58,7 +64,8 @@ const local: App.I18n.Schema = {
     error: '错误',
     saveSuccess: '保存成功',
     addNew: '新增{name}',
-    createNew: '创建{name}'
+    createNew: '创建{name}',
+    back: '返回'
   },
   dropdown: {
     closeCurrent: '关闭',
@@ -88,21 +95,28 @@ const local: App.I18n.Schema = {
       wk: '周',
       d: '天',
       hr: '小时',
-      min: '分钟'
+      min: '分钟',
+      hide: '隐藏'
     },
     login: {
       pwdLogin: {
         title: '用户名/密码',
         rememberMe: '记住我'
       },
+      register: {
+        title: '注册'
+      },
       common: {
         usernamePlaceholder: '用户名',
         passwordPlaceholder: '密码',
         userTypePlaceholder: '用户类型',
+        confirmPasswordPlaceholder: '确认密码',
+        emailPlaceholder: '电子邮箱地址',
         loginSuccess: '登录成功',
         welcomeBack: '欢迎回来',
         admin: '管理员',
-        user: '用户'
+        user: '用户',
+        loginOrRegister: '注册或登录'
       }
     }
   },
@@ -117,6 +131,9 @@ const local: App.I18n.Schema = {
       fields: '字段',
       template: '模版',
       rate: '频率'
+    },
+    card: {
+      hidden: '隐藏'
     },
     common: {
       createdAt: '创建于',

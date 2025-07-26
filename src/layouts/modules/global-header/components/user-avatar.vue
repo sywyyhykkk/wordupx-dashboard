@@ -67,13 +67,14 @@ function handleDropdown(key: DropdownKey) {
 
 <template>
   <NButton v-if="!authStore.isLogin" quaternary @click="loginOrRegister">
+    -{{ authStore.token }}-
     {{ $t('page.login.common.loginOrRegister') }}
   </NButton>
   <NDropdown v-else placement="bottom" trigger="click" :options="options" @select="handleDropdown">
     <div>
       <ButtonIcon>
         <SvgIcon icon="ph:user-circle" class="text-icon-large" />
-        <span class="text-16px font-medium">{{ authStore.userInfo.userName }}</span>
+        <span class="text-16px font-medium">{{ authStore.userInfo.username }}</span>
       </ButtonIcon>
     </div>
   </NDropdown>

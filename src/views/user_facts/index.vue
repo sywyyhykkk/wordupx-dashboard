@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import type { SelectOption } from 'naive-ui';
 import { fetchUserDecks } from '@/service/api';
 import AddFact from './modules/add-fact.vue';
@@ -25,15 +25,20 @@ async function getUserDecks() {
   isLoading.value = false;
 }
 
-function onSelect(data: string) {
-  const deck = userDecks.value?.find(d => d.value === data);
-  if (deck) {
-    fields.value = deck.field as unknown as string[];
+watch(
+  () => [deckId.value, userDecks.value?.length],
+  val => {
+    const deck = userDecks.value?.find(d => d.value === val[0]);
+    if (deck) {
+      fields.value = deck.field as unknown as string[];
+    }
+  },
+  {
+    immediate: true
   }
-}
+);
 
 function onAddNewFact() {
-  console.log(userFact.value);
   userFact.value?.getUserFacts();
 }
 
@@ -44,17 +49,7 @@ onMounted(() => {
 
 <template>
   <NSpace vertical :size="8" class="color-black">
-    <NCard v-if="!isLoading">
-      <div class="flex items-center justify-between gap-8">
-        <NSelect
-          v-model:value="deckId"
-          :options="userDecks"
-          :placeholder="$t('page.cards.deckIdPlaceholder')"
-          @update:value="onSelect"
-        />
-        <NButton type="primary" :disabled="!deckId" @click="isShowDialog = true">Add fact</NButton>
-      </div>
-    </NCard>
+    <DeckSelector v-model="deckId" />
 
     <UserFact v-if="deckId" ref="userFact" :deck-id="deckId" :fields="fields || []" />
 

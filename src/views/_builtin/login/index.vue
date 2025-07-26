@@ -6,6 +6,7 @@ import { useAppStore } from '@/store/modules/app';
 import { useThemeStore } from '@/store/modules/theme';
 import { $t } from '@/locales';
 import PwdLogin from './modules/pwd-login.vue';
+import Register from './modules/register.vue';
 
 interface Props {
   /** The login module */
@@ -23,7 +24,8 @@ interface LoginModule {
 }
 
 const moduleMap: Record<UnionKey.LoginModule, LoginModule> = {
-  'pwd-login': { label: 'page.login.pwdLogin.title', component: PwdLogin }
+  'pwd-login': { label: 'page.login.pwdLogin.title', component: PwdLogin },
+  register: { label: 'page.login.pwdLogin.title', component: Register }
 };
 
 const activeModule = computed(() => moduleMap[props.module || 'pwd-login']);

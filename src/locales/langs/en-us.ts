@@ -1,6 +1,6 @@
 const local: App.I18n.Schema = {
   system: {
-    title: 'SoybeanAdmin',
+    title: 'Wordupx',
     updateTitle: 'System Version Update Notification',
     updateContent: 'A new version of the system has been detected. Do you want to refresh the page immediately?',
     updateConfirm: 'Refresh immediately',
@@ -26,6 +26,8 @@ const local: App.I18n.Schema = {
     user_facts: 'Facts',
     user_cards: 'Cards',
     user_decks: 'Decks',
+    user_cards_hidden: 'Hidden',
+    user_cards_learn: 'Learn',
     exception: 'Exception',
     exception_403: '403',
     exception_404: '404',
@@ -34,9 +36,13 @@ const local: App.I18n.Schema = {
   form: {
     pleaseEnter: 'Please enter {field}',
     required: 'The field is required',
+    email: {
+      required: 'Please enter email address',
+      invalid: 'Email address format is incorrect'
+    },
     username: {
-      required: 'Please enter user name',
-      invalid: 'User name format is incorrect'
+      required: 'Please enter username',
+      invalid: 'Username format is incorrect'
     },
     pwd: {
       required: 'Please enter password',
@@ -58,7 +64,8 @@ const local: App.I18n.Schema = {
     error: 'Error',
     saveSuccess: 'Save successfully',
     addNew: 'Add new {name}',
-    createNew: 'Create New {name}'
+    createNew: 'Create New {name}',
+    back: 'Back'
   },
   dropdown: {
     closeCurrent: 'Close Current',
@@ -88,21 +95,28 @@ const local: App.I18n.Schema = {
       wk: ' Week',
       d: ' Day',
       hr: ' Hour',
-      min: ' Minute'
+      min: ' Minute',
+      hide: 'Hide'
     },
     login: {
       pwdLogin: {
         title: 'Username/Password',
         rememberMe: 'Remember me'
       },
+      register: {
+        title: 'Register'
+      },
       common: {
         usernamePlaceholder: 'Username',
         passwordPlaceholder: 'Password',
         userTypePlaceholder: 'User type',
+        confirmPasswordPlaceholder: 'Confirm password',
+        emailPlaceholder: 'Email address',
         loginSuccess: 'Login successfully',
         welcomeBack: 'Welcome back',
         admin: 'Admin',
-        user: 'User'
+        user: 'User',
+        loginOrRegister: 'Login or register'
       }
     }
   },
@@ -117,6 +131,9 @@ const local: App.I18n.Schema = {
       fields: 'FIELDS',
       template: 'TEMPLATE',
       rate: 'RATE'
+    },
+    card: {
+      hidden: 'HIDDEN'
     },
     common: {
       createdAt: 'CREATED AT',

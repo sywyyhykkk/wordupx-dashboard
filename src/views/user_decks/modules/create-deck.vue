@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import { NButton, NDynamicInput, NForm, NFormItem, NInput, NModal, NSlider } from 'naive-ui';
-import { createNewDeck } from '@/service/api';
+import { fetchCreateNewDeck } from '@/service/api';
+
+defineOptions({
+  name: 'CreateDeck'
+});
 
 const emit = defineEmits<{
   save: [];
@@ -23,7 +27,7 @@ async function handleSave() {
     rate: rate.value
   };
 
-  await createNewDeck(deckData);
+  await fetchCreateNewDeck(deckData);
 
   show.value = false;
   name.value = '';
@@ -34,12 +38,7 @@ async function handleSave() {
 </script>
 
 <template>
-  <NModal
-    v-model:show="show"
-    preset="card"
-    :title="$t('page.common.addNew', { name: $t('route.user_decks') })"
-    class="w-96"
-  >
+  <NModal v-model:show="show" preset="card" :title="$t('common.addNew', { name: $t('route.user_decks') })" class="w-96">
     <NForm label-placement="top">
       <NFormItem :label="$t('table.deck.name')">
         <NInput

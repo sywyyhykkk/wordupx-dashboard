@@ -1,15 +1,8 @@
-import type {
-  LocationQueryRaw,
-  NavigationGuardNext,
-  RouteLocationNormalized,
-  RouteLocationRaw,
-  Router
-} from 'vue-router';
+import type { NavigationGuardNext, RouteLocationNormalized, RouteLocationRaw, Router } from 'vue-router';
 import type { RouteKey, RoutePath } from '@elegant-router/types';
 import { useAuthStore } from '@/store/modules/auth';
 import { useRouteStore } from '@/store/modules/route';
 import { localStg } from '@/utils/storage';
-import { getRouteName } from '@/router/elegant/transform';
 
 /**
  * create route guard
@@ -107,11 +100,9 @@ async function initRoute(to: RouteLocationNormalized): Promise<RouteLocationRaw 
 
     // if the user is not logged in, then switch to the login page
     const loginRoute: RouteKey = 'login';
-    const query = getRouteQueryOfLoginRoute(to, routeStore.routeHome);
 
     const location: RouteLocationRaw = {
-      name: loginRoute,
-      query
+      name: loginRoute
     };
 
     return location;
@@ -172,21 +163,4 @@ function handleRouteSwitch(to: RouteLocationNormalized, from: RouteLocationNorma
   }
 
   next();
-}
-
-function getRouteQueryOfLoginRoute(to: RouteLocationNormalized, routeHome: RouteKey) {
-  const loginRoute: RouteKey = 'login';
-  const redirect = to.fullPath;
-  const [redirectPath, redirectQuery] = redirect.split('?');
-  const redirectName = getRouteName(redirectPath as RoutePath);
-
-  const isRedirectHome = routeHome === redirectName;
-
-  const query: LocationQueryRaw = to.name !== loginRoute && !isRedirectHome ? { redirect } : {};
-
-  if (isRedirectHome && redirectQuery) {
-    query.redirect = `/?${redirectQuery}`;
-  }
-
-  return query;
 }

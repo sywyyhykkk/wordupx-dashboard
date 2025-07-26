@@ -3,26 +3,38 @@ import { request } from '../request';
 /**
  * Login
  *
- * @param userName User name
+ * @param username Username
  * @param password Password
  */
-export function fetchLogin(userName: string, password: string) {
+export function fetchLogin(username: string, password: string) {
   return request<Api.Auth.LoginToken>({
     url: '/admin/login',
     method: 'post',
     data: {
-      userName,
+      username,
       password
     }
   });
 }
 
-export function fetchUserLogin(userName: string, password: string) {
+export function fetchUserLogin(username: string, password: string) {
   return request<Api.Auth.LoginToken>({
     url: '/auth/login',
     method: 'post',
     data: {
-      userName,
+      username,
+      password
+    }
+  });
+}
+
+export function fetchUserRegister(email: string, username: string, password: string) {
+  return request({
+    url: '/auth/register',
+    method: 'post',
+    data: {
+      email,
+      username,
       password
     }
   });

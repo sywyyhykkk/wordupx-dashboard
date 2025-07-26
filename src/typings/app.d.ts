@@ -34,6 +34,36 @@ declare namespace App {
       templates: number[][];
       rate: number;
     }
+
+    interface Card {
+      card: {
+        fact_index: number;
+        template_index: number;
+        last_review: number;
+        due_date: number;
+        hidden: boolean;
+        min_calculation: number;
+        max_calculation: number;
+      };
+      card_index: number;
+      def_interval: number;
+      fact: [string, string];
+      hidden_cards: number;
+      max_interval: number;
+      min_interval: number;
+      template: number[];
+      urgency: number;
+    }
+
+    interface CardRaw {
+      fact_index: number;
+      template_index: number;
+      last_review: number;
+      due_date: number;
+      hidden: boolean;
+      min_calculation: number;
+      max_calculation: number;
+    }
   }
 
   /** Theme namespace */
@@ -348,6 +378,10 @@ declare namespace App {
       form: {
         pleaseEnter: string;
         required: string;
+        email: {
+          required: string;
+          invalid: string;
+        };
         username: {
           invalid: string;
           required: string;
@@ -373,6 +407,7 @@ declare namespace App {
         saveSuccess: string;
         addNew: string;
         createNew: string;
+        back: string;
       };
       dropdown: {
         closeCurrent: string;
@@ -403,20 +438,27 @@ declare namespace App {
           d: string;
           hr: string;
           min: string;
+          hide: string;
         };
         login: {
           pwdLogin: {
             title: string;
             rememberMe: string;
           };
+          register: {
+            title: string;
+          };
           common: {
             usernamePlaceholder: string;
             passwordPlaceholder: string;
             userTypePlaceholder: string;
+            confirmPasswordPlaceholder: string;
+            emailPlaceholder: string;
             loginSuccess: string;
             welcomeBack: string;
             admin: string;
             user: string;
+            loginOrRegister: string;
           };
         };
       };
@@ -431,6 +473,9 @@ declare namespace App {
           fields: string;
           template: string;
           rate: string;
+        };
+        card: {
+          hidden: string;
         };
         common: {
           createdAt: string;

@@ -19,7 +19,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <NSpace vertical :size="16">
+  <NSpace vertical :size="8">
     <NCard>Some filters</NCard>
     <NCard :bordered="false">
       <ListTable :options="{}" :records="listRecords" height="400px">

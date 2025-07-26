@@ -5,7 +5,7 @@ declare namespace UnionKey {
    *
    * - pwd-login: password login
    */
-  type LoginModule = 'pwd-login';
+  type LoginModule = 'pwd-login' | 'register';
 
   /** Theme scheme */
   type ThemeScheme = 'light' | 'dark' | 'auto';

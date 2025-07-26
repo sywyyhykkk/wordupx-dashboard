@@ -29,6 +29,8 @@ declare module "@elegant-router/types" {
     "login": "/login/:module(pwd-login)?";
     "user": "/user";
     "user_cards": "/user/cards";
+    "user_cards_hidden": "/user/cards/hidden";
+    "user_cards_learn": "/user/cards/learn";
     "user_decks": "/user/decks";
     "user_facts": "/user/facts";
     "users": "/users";
@@ -98,7 +100,8 @@ declare module "@elegant-router/types" {
     | "login"
     | "decks"
     | "home"
-    | "user_cards"
+    | "user_cards_hidden"
+    | "user_cards_learn"
     | "user_decks"
     | "user_facts"
     | "users"

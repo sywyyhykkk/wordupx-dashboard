@@ -1,13 +1,13 @@
 import { request } from '../request';
 
 export function fetchUserDecks() {
-  return request<{ decks: App.WordUpx.Deck[] } & Api.Common.PaginatingCommonParams>({
+  return request<{ decks: App.WordUpx.Deck[] }>({
     url: `/api/decks`,
     method: 'get'
   });
 }
 
-export function createNewDeck(data: App.WordUpx.DeckForm) {
+export function fetchCreateNewDeck(data: App.WordUpx.DeckForm) {
   return request({
     url: `/api/decks`,
     method: 'post',

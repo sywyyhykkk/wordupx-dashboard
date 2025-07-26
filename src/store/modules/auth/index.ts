@@ -1,8 +1,8 @@
-import { computed, reactive, ref } from 'vue';
+import { computed, reactive } from 'vue';
 import { useRoute } from 'vue-router';
 import { defineStore } from 'pinia';
 import { useLoading } from '@sa/hooks';
-import { fetchLogin, fetchUserLogin } from '@/service/api';
+import { fetchLogin, fetchUserLogin, fetchUserRegister } from '@/service/api';
 import { useRouterPush } from '@/hooks/common/router';
 import { localStg } from '@/utils/storage';
 import { SetupStoreId } from '@/enum';
@@ -18,11 +18,11 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
   const { toLogin, redirectFromLogin } = useRouterPush(false);
   const { loading: loginLoading, startLoading, endLoading } = useLoading();
 
-  const token = ref(getToken());
+  const token = computed(() => getToken());
 
   const userInfo: Api.Auth.UserInfo = reactive({
     userId: '',
-    userName: '',
+    username: '',
     roles: ['1'],
     buttons: []
   });
@@ -60,14 +60,14 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
   /**
    * Login
    *
-   * @param userName User name
+   * @param username Username
    * @param password Password
    * @param [redirect=true] Whether to redirect after login. Default is `true`
    */
-  async function login(userName: string, password: string, redirect = true) {
+  async function login(username: string, password: string, redirect = true) {
     startLoading();
 
-    const { data, error } = await fetchLogin(userName, password);
+    const { data, error } = await fetchLogin(username, password);
 
     if (!error) {
       localStg.set('token', data.token);
@@ -76,7 +76,7 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
 
       window.$notification?.success({
         title: $t('page.login.common.loginSuccess'),
-        content: $t('page.login.common.welcomeBack', { userName: userInfo.userName }),
+        content: $t('page.login.common.welcomeBack'),
         duration: 4500
       });
     } else {
@@ -86,10 +86,10 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
     endLoading();
   }
 
-  async function userLogin(userName: string, password: string, redirect = true) {
+  async function userLogin(username: string, password: string, redirect = true) {
     startLoading();
 
-    const { data, error } = await fetchUserLogin(userName, password);
+    const { data, error } = await fetchUserLogin(username, password);
 
     if (!error) {
       localStg.set('token', data.token);
@@ -98,9 +98,25 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
 
       window.$notification?.success({
         title: $t('page.login.common.loginSuccess'),
-        content: $t('page.login.common.welcomeBack', { userName: userInfo.userName }),
+        content: $t('page.login.common.welcomeBack'),
         duration: 4500
       });
+    } else {
+      resetStore();
+    }
+
+    endLoading();
+  }
+
+  async function userRegister(email: string, username: string, password: string) {
+    startLoading();
+
+    const { data, error } = await fetchUserRegister(email, username, password);
+
+    if (!error) {
+      if (data.email && data.username) {
+        userLogin(username, password, true);
+      }
     } else {
       resetStore();
     }
@@ -143,6 +159,7 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
     resetStore,
     login,
     userLogin,
+    userRegister,
     initUserInfo,
     setUserRole
   };
