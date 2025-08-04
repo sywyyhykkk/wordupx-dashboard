@@ -10,6 +10,12 @@ export default defineConfig(
           ignores: ['index', 'App', 'Register', '[id]', '[url]']
         }
       ],
+      'no-warning-comments': [
+        'off',
+        {
+          terms: ['todo', 'fixme']
+        }
+      ],
       'vue/component-name-in-template-casing': [
         'warn',
         'PascalCase',

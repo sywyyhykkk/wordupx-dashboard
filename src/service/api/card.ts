@@ -13,8 +13,10 @@ interface UpdateCardPayload {
 }
 
 export function fetchUpdateCard(deckId: string, cardIndex: number, data: UpdateCardPayload) {
+  // TODO Update cards
+  const prefix = 'update-visibility';
   return request({
-    url: `/api/decks/${deckId}/cards/${cardIndex}`,
+    url: `/api/decks/${deckId}/cards/${cardIndex}/${prefix}`,
     method: 'patch',
     data
   });
